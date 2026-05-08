@@ -14,9 +14,215 @@
 </head>
 <body>
 
+<!-- 1. SPLASH SCREEN (Lines 502-515) -->
+<div id="scr-splash" class="screen on">
+    <div class="splash-logo">🏗️</div>
+    <div class="splash-name">AIPL</div>
+    <div class="splash-tag">Atmagaurav Infra Pvt. Ltd.<br>Infrastructure Excellence</div>
+    <div class="splash-dots">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+</div>
+
+<!-- 2. LOGIN SCREEN (Lines 517-545) -->
+<div id="scr-login" class="screen">
+    <div class="login-bg">
+        <div class="login-logo">🏗️</div>
+        <div class="login-brand">AIPL</div>
+        <div class="login-sub">Digital ERP System</div>
+    </div>
+    <div class="login-card">
+        <h2 class="login-title">Welcome Back</h2>
+        <p class="login-desc">Sign in to manage site operations</p>
+        
+        <label class="flbl">Mobile Number</label>
+        <div class="inp-wrap">
+            <input type="tel" id="login-mobile" class="finp" placeholder="Enter Registered Mobile" maxlength="10">
+        </div>
+
+        <button class="btn-primary" onclick="requestOTP()">Request OTP</button>
+        <div class="divider">OR</div>
+        <button class="btn-outline" onclick="showScreen('scr-register')">Register New Account</button>
+        
+        <div class="login-foot">
+            Authorized Personnel Only <br>
+            <a href="#">Support Center</a>
+        </div>
+    </div>
+</div>
+
+<!-- 3. ATTENDANCE MAIN SCREEN (Lines 550-650) -->
+<div id="scr-attendance" class="app-screen">
+    <div class="topbar">
+        <div class="topbar-logo">AI<span>PL</span></div>
+        <div class="topbar-sep">|</div>
+        <div class="topbar-title">ATTENDANCE</div>
+        <div class="topbar-right">
+            <div class="topbar-date clock-date">LOADING...</div>
+        </div>
+    </div>
+
+    <div class="punch-hero">
+        <div class="punch-layout">
+            <div class="punch-clock">
+                <div class="clock-time">00:00:00</div>
+            </div>
+
+            <div class="punch-center">
+                <div class="punch-ring punch-ring-in" onclick="handlePunch()">
+                    <div class="punch-ring-inner">
+                        <div class="punch-icon">▶</div>
+                        <div class="punch-label">PUNCH IN</div>
+                    </div>
+                </div>
+                <div id="punch-status-text" class="punch-status">Status: OUT</div>
+            </div>
+
+            <div class="gps-strip gps-ok">
+                <div class="gps-dot"></div>
+                <span id="gps-status">GPS: Checking Location...</span>
+            </div>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="summary-row">
+            <div class="scard" style="--scard-color: var(--blue)">
+                <div class="scard-label">Total Strength</div>
+                <div class="scard-val" id="total-strength">0</div>
+            </div>
+            <div class="scard" style="--scard-color: var(--green)">
+                <div class="scard-label">Present</div>
+                <div class="scard-val" id="total-present">0</div>
+            </div>
+        </div>
+
+        <div class="table-card">
+            <div class="table-card-header">
+                <div class="tch-title">Live Site Muster</div>
+            </div>
+            <table class="att-table">
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>In Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="attendance-list">
+                    <!-- Data will be injected here by app.js -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <nav class="app-nav">
+        <button class="an-item on" onclick="showScreen('scr-attendance')">
+            <span class="an-ic">🏠</span>
+            <span class="an-lb">HOME</span>
+        </button>
+        <button class="an-item" onclick="showScreen('scr-dash')">
+            <span class="an-ic">📊</span>
+            <span class="an-lb">DASHBOARD</span>
+        </button>
+        <button class="an-item" onclick="showScreen('scr-profile')">
+            <span class="an-ic">👤</span>
+            <span class="an-lb">PROFILE</span>
+        </button>
+    </nav>
+</div>
+
+
+
     <!-- [STAY HERE: I will give you the HTML content for this section in the next message] -->
 
     <!-- Link to your JS file -->
+
+
+<!-- 4. ADMIN DASHBOARD SCREEN (Lines 655-800) -->
+<div id="scr-dash" class="app-screen">
+    <div class="topbar">
+        <div class="topbar-logo">AI<span>PL</span></div>
+        <div class="topbar-title">CONTROL PANEL</div>
+    </div>
+    
+    <main class="main" style="padding: 16px; overflow-y: auto;">
+        <div class="admin-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+            <div class="astat" style="background: var(--navy); color: white; padding: 20px; border-radius: 18px;">
+                <div style="font-size: 12px; opacity: 0.8;">Active Projects</div>
+                <div style="font-size: 28px; font-weight: 900;">08</div>
+            </div>
+            <div class="astat" style="background: var(--blue); color: white; padding: 20px; border-radius: 18px;">
+                <div style="font-size: 12px; opacity: 0.8;">Site Expense</div>
+                <div style="font-size: 22px; font-weight: 900;">₹4.2L</div>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 12px; font-weight: 800;">Quick Actions</h3>
+        <div class="action-list">
+            <button class="btn-outline" style="text-align: left; padding: 16px; display: flex; align-items: center; gap: 12px;" onclick="showScreen('scr-material')">
+                <span>📦</span> 
+                <div>
+                    <div style="font-weight: 700;">Material Master</div>
+                    <div style="font-size: 11px; color: var(--text3);">Track cement, steel, and fuel</div>
+                </div>
+            </button>
+            <button class="btn-outline" style="text-align: left; padding: 16px; display: flex; align-items: center; gap: 12px;">
+                <span>🚜</span> 
+                <div>
+                    <div style="font-weight: 700;">Machinery Log</div>
+                    <div style="font-size: 11px; color: var(--text3);">JCB & Roller usage hours</div>
+                </div>
+            </button>
+        </div>
+    </main>
+
+    <nav class="app-nav">
+        <button class="an-item" onclick="showScreen('scr-attendance')">
+            <span class="an-ic">🏠</span>
+            <span class="an-lb">HOME</span>
+        </button>
+        <button class="an-item on" onclick="showScreen('scr-dash')">
+            <span class="an-ic">📊</span>
+            <span class="an-lb">DASHBOARD</span>
+        </button>
+        <button class="an-item" onclick="showScreen('scr-profile')">
+            <span class="an-ic">👤</span>
+            <span class="an-lb">PROFILE</span>
+        </button>
+    </nav>
+</div>
+
+<!-- 5. MATERIAL MASTER SCREEN (The fix for your sheet naming error) -->
+<div id="scr-material" class="app-screen">
+    <div class="topbar">
+        <button class="btn-back" onclick="showScreen('scr-dash')" style="background:transparent; border:none; color:white; font-size:20px; margin-right:10px;">←</button>
+        <div class="topbar-title">MATERIAL STOCK</div>
+    </div>
+    
+    <div style="padding: 16px;">
+        <div class="search-bar" style="margin-bottom: 16px;">
+            <input type="text" class="finp" placeholder="Search Item (Cement, Steel...)" style="margin-bottom: 0;">
+        </div>
+
+        <div id="material-container">
+            <!-- This is where your master master / material master items load -->
+            <div class="reg-card" style="padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <div style="font-weight: 800;">OPC 53 Cement</div>
+                    <div style="font-size: 12px; color: var(--text3);">Site: NH-48 Section A</div>
+                </div>
+                <div style="text-align: right;">
+                    <div style="color: var(--green); font-weight: 800;">450 Bags</div>
+                    <div style="font-size: 10px;">In Stock</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
     <script src="js/app.js"></script>
 </body>
 </html>
