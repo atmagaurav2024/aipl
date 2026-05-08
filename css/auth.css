@@ -1,0 +1,33 @@
+/* SHARED & GLOBAL RESET */
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html, body { height:100%; font-family:'Nunito',sans-serif; background:#F0F4F8; color:#0D2137; overflow:hidden; }
+
+:root {
+  --navy:#0D2137; --navy2:#122840; --navy3:#1A3A5C; --blue:#1565C0; --blue2:#1976D2;
+  --green:#2E7D32; --greenl:#E8F5E9; --amber:#F57F17; --amberl:#FFF8E1;
+  --red:#C62828; --redl:#FFEBEE; --teal:#00838F; --purple:#6A1B9A;
+  --bg:#F0F4F8; --white:#fff; --border:#E2E8F0;
+  --text:#0D2137; --text2:#475569; --text3:#94A3B8;
+  --shadow:0 2px 12px rgba(13,33,55,.08); --shadow2:0 8px 32px rgba(13,33,55,.18);
+}
+
+.screen { position:fixed; inset:0; display:none; flex-direction:column; overflow-y:auto; z-index:5; }
+.screen.on { display:flex; animation:fadeIn .3s ease; }
+
+@keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+/* SPLASH SCREEN */
+#scr-splash { background:linear-gradient(160deg,var(--navy) 0%,var(--navy3) 60%,#1565C0 100%); align-items:center; justify-content:center; }
+.splash-logo { width:80px; height:80px; border-radius:24px; background:rgba(255,255,255,.12); border:2px solid rgba(255,255,255,.2); display:flex; align-items:center; justify-content:center; font-size:36px; margin-bottom:20px; }
+.splash-name { font-size:32px; font-weight:900; color:white; letter-spacing:-1px; }
+
+/* LOGIN & REGISTRATION */
+#scr-login { background:linear-gradient(160deg,var(--navy) 0%,var(--navy3) 50%,#1565C0 100%); }
+.login-card { flex:1; background:var(--white); border-radius:28px 28px 0 0; padding:24px 24px 40px; }
+.finp { width:100%; padding:14px 16px; background:var(--bg); border:1.5px solid var(--border); border-radius:14px; font-size:16px; outline:none; margin-bottom:14px; }
+.btn-primary { width:100%; padding:16px; background:linear-gradient(135deg,var(--navy),var(--blue)); border:none; border-radius:14px; font-size:16px; font-weight:800; color:white; cursor:pointer; }
+.btn-outline { width:100%; padding:14px; background:transparent; border:1.5px solid var(--border); border-radius:14px; font-size:14px; color:var(--text2); margin-bottom:12px; }
+
+/* TOAST NOTIFICATIONS */
+.toast-wrap { position:fixed; top:16px; left:14px; right:14px; z-index:9999; pointer-events:none; }
+.toast-item { background:var(--navy); color:white; border-radius:14px; padding:12px 16px; font-size:13px; font-weight:600; display:flex; align-items:center; gap:8px; margin-bottom:8px; box-shadow:var(--shadow2); border-left:4px solid #43A047; animation:tIn .3s ease; }

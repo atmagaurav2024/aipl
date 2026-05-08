@@ -1,0 +1,59 @@
+/* ═══════════════════════════════════════════
+   ATTENDANCE SYSTEM UI
+═══════════════════════════════════════════ */
+:root {
+    --bg2: #F8FAFC;
+    --navy-glass: rgba(13, 33, 55, 0.95);
+    --gold: #FFD700;
+}
+
+/* TOPBAR */
+.topbar {
+    height: 64px; background: var(--navy); display: flex; align-items: center; padding: 0 20px; color: white;
+}
+.topbar-logo { font-weight: 900; font-size: 22px; color: #fff; }
+.topbar-logo span { color: var(--blue); }
+.topbar-title { margin-left: 12px; font-weight: 700; font-size: 14px; opacity: 0.9; }
+
+/* PUNCH HERO SECTION */
+.punch-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1A3A5C 60%, #0D4A6B 100%);
+    padding: 32px 24px; color: white; position: relative;
+}
+.clock-time { font-family: 'JetBrains Mono', monospace; font-size: 52px; font-weight: 700; }
+.clock-date { font-size: 14px; opacity: 0.7; letter-spacing: 1px; }
+
+/* PUNCH RING BUTTON */
+.punch-center { display: flex; flex-direction: column; align-items: center; margin: 24px 0; }
+.punch-ring {
+    width: 140px; height: 140px; border-radius: 50%; display: flex; align-items: center; 
+    justify-content: center; cursor: pointer; position: relative; transition: transform 0.2s;
+}
+.punch-ring:active { transform: scale(0.95); }
+.punch-ring-in { background: linear-gradient(135deg, #2E7D32, #43A047); box-shadow: 0 0 30px rgba(74,175,80,0.4); }
+.punch-ring-inner { text-align: center; color: white; }
+.punch-icon { font-size: 32px; margin-bottom: 4px; }
+.punch-label { font-size: 12px; font-weight: 800; }
+
+/* SUMMARY CARDS */
+.summary-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; margin-top: -20px; }
+.scard {
+    background: white; border-radius: 18px; padding: 16px; box-shadow: var(--shadow);
+    border-bottom: 4px solid var(--scard-color);
+}
+.scard-val { font-size: 24px; font-weight: 900; margin: 4px 0; }
+.scard-label { font-size: 11px; font-weight: 700; color: var(--text3); text-transform: uppercase; }
+
+/* ATTENDANCE TABLE */
+.table-card { background: white; margin: 0 16px 80px; border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); }
+.table-card-header { padding: 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.tch-title { font-weight: 800; color: var(--navy); }
+
+.att-table { width: 100%; border-collapse: collapse; }
+.att-table th { background: var(--bg); padding: 12px 16px; text-align: left; font-size: 11px; font-weight: 800; color: var(--text2); text-transform: uppercase; }
+.att-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 13px; }
+
+/* BOTTOM NAV */
+.app-nav { height: 70px; background: white; border-top: 1px solid var(--border); display: flex; padding-bottom: env(safe-area-inset-bottom); }
+.an-item { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; color:var(--text3); }
+.an-item.on { color:var(--blue); }
